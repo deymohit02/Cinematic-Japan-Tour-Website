@@ -21,8 +21,8 @@ const SakuraPetals = memo(() => {
   const [petals, setPetals] = useState<Petal[]>([]);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (mediaQuery.matches) return;
+    // const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    // if (mediaQuery.matches) return;
 
     const count = window.innerWidth < 768 ? Math.floor(PETAL_COUNT * 0.4) : PETAL_COUNT;
 
@@ -49,15 +49,15 @@ const SakuraPetals = memo(() => {
       {petals.map((petal) => (
         <div
           key={petal.id}
-          className="petal"
           style={{
+            position: 'absolute',
+            top: 0,
             left: `${petal.x}%`,
-            width: petal.size,
-            height: petal.size * 0.7,
+            width: `${petal.size}px`,
+            height: `${petal.size * 0.7}px`,
             backgroundColor: petal.color,
             borderRadius: '100% 10% 90% 30%',
             opacity: petal.opacity,
-            filter: 'blur(0.2px)',
             boxShadow: '0 0 15px rgba(255,184,197,0.5)',
             animationName: 'petalFall',
             animationDuration: `${petal.duration}s`,
@@ -66,29 +66,10 @@ const SakuraPetals = memo(() => {
             animationIterationCount: 'infinite',
             animationDirection: 'normal',
             animationFillMode: 'both',
-            transformOrigin: 'center center',
+            willChange: 'transform',
           } as React.CSSProperties}
         />
       ))}
-      <style>{`
-        @keyframes petalFall {
-          0% {
-            transform: translateY(-100px) translateX(0) rotate(0deg) scale(0.8);
-          }
-          25% {
-            transform: translateY(25vh) translateX(50px) rotate(90deg) scale(1);
-          }
-          50% {
-            transform: translateY(50vh) translateX(-30px) rotate(180deg) scale(0.9);
-          }
-          75% {
-            transform: translateY(75vh) translateX(40px) rotate(270deg) scale(1.05);
-          }
-          100% {
-            transform: translateY(100vh) translateX(0) rotate(360deg) scale(0.8);
-          }
-        }
-      `}</style>
     </div>
   );
 });
