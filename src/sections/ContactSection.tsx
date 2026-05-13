@@ -13,7 +13,6 @@ export default function ContactSection() {
   });
 
   const bgY = useTransform(scrollYProgress, [0, 1], ['-10%', '10%']);
-  const formOpacity = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0, 1, 1, 0]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
