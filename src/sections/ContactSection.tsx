@@ -33,10 +33,10 @@ export default function ContactSection() {
         <img
           src="/images/contact-fuji.jpg"
           alt="Mount Fuji"
-          className="w-full h-full object-cover object-center opacity-40 grayscale-[0.5] contrast-[1.1]"
+          className="w-full h-full object-cover object-center opacity-50 grayscale-[0.5] contrast-[1.1]"
         />
         {/* Cinematic Vignette */}
-        <div className="absolute inset-0 bg-radial-gradient from-transparent via-mist-black/40 to-mist-black/90" />
+        <div className="absolute inset-0 bg-radial-gradient from-transparent via-mist-black/30 to-mist-black/20" />
       </motion.div>
 
       <div className="max-w-[1440px] mx-auto w-full px-[clamp(24px,8vw,120px)] relative z-[2]">
@@ -90,7 +90,7 @@ export default function ContactSection() {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+1 (000) 000-0000"
+                    placeholder="+91 12345 67890"
                     className="w-full bg-transparent border-b border-white/10 text-kimono-white text-lg py-3 focus:outline-none focus:border-lime-accent transition-all duration-500 placeholder:text-white/10"
                     required
                   />
