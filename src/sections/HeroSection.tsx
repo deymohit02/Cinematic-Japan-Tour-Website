@@ -84,7 +84,7 @@ export default function HeroSection() {
             fontSize: 'clamp(70px, 22vw, 420px)',
             lineHeight: 0.8,
             fontWeight: 700,
-            marginTop: '-5dvh'
+            marginTop: '-10dvh'
           }}
           initial={{ opacity: 0, y: 100 }}
           animate={loaded ? { opacity: 1, y: 0 } : {}}
@@ -207,7 +207,7 @@ export default function HeroSection() {
       {/* Button (z-30) */}
       <motion.div
         className="absolute bottom-12 right-12 z-[30]"
-        initial={{ opacity: 0 }}
+        initial={{ opacity: 0.5 }}
         animate={loaded ? { opacity: 1 } : {}}
         transition={{ delay: 1 }}
       >
